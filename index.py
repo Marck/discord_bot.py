@@ -1,4 +1,5 @@
 import os
+import discord
 
 from utils import default
 from utils.data import Bot, HelpFormat
@@ -10,7 +11,8 @@ bot = Bot(
     command_prefix=config.prefix,
     prefix=config.prefix,
     command_attrs=dict(hidden=True),
-    help_command=HelpFormat()
+    help_command=HelpFormat(),
+    intents=discord.Intents(members=True)
 )
 
 for file in os.listdir("cogs"):
